@@ -2,6 +2,7 @@ package simulator.player;
 
 import java.security.SecureRandom;
 import java.util.Random;
+import simulator.MyRandom;
 import simulator.playerdata.PlayerData;
 
 public class Player {
@@ -51,7 +52,6 @@ public class Player {
 		++score.dasekiCount;
 
 		Random rnd = new SecureRandom();
-
 		Integer ran = rnd.nextInt(1000);
 
 		if (ran < probabilityOfSingleHit) {

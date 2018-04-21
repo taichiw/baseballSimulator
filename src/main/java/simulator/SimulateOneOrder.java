@@ -63,49 +63,4 @@ public class SimulateOneOrder {
 
 		return oneOrderResult;
 	}
-
-	private static PlayerScores callAWS() {
-
-		// ARN
-		String functionName = "";
-
-		String inputJSON = "[\n"
-						   + "  \"simulator.playerdata.eagles.E_Amador\",\n"
-						   + "  \"simulator.playerdata.eagles.E_Amador\",\n"
-						   + "  \"simulator.playerdata.eagles.E_Amador\",\n"
-						   + "  \"simulator.playerdata.eagles.E_Amador\",\n"
-						   + "  \"simulator.playerdata.eagles.E_Amador\",\n"
-						   + "  \"simulator.playerdata.eagles.E_Amador\",\n"
-						   + "  \"simulator.playerdata.eagles.E_Amador\",\n"
-						   + "  \"simulator.playerdata.eagles.E_Amador\",\n"
-						   + "  \"simulator.playerdata.eagles.E_Amador\"\n"
-						   + "]";
-
-		InvokeRequest lmbRequest = new InvokeRequest()
-				.withFunctionName(functionName)
-				.withPayload(inputJSON);
-
-		lmbRequest.setInvocationType(InvocationType.RequestResponse);
-
-		AWSLambda lambda = AWSLambdaClientBuilder.standard()
-				.withRegion(Regions.AP_NORTHEAST_1)
-				.withCredentials(new AWSStaticCredentialsProvider(credentials)).build();
-
-		InvokeResult lmbResult = lambda.invoke(lmbRequest);
-
-		String resultJSON = new String(lmbResult.getPayload().array(), Charset.forName("UTF-8"));
-		//		System.out.println(inputJSON + "\n" + resultJSON);
-
-		ObjectMapper mapper = new ObjectMapper();
-
-		PlayerScores playerScores = null;
-		try {
-			playerScores = mapper.readValue(resultJSON, PlayerScores.class);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return playerScores;
-
-	}
-
 }

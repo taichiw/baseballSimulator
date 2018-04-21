@@ -89,6 +89,6 @@ public class SimulateOneSeason {
 	}
 
 	private static void debugSout(String str) {
-						System.out.println(str);
+//						System.out.println(str);
 	}
 }
