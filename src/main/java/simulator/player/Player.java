@@ -25,6 +25,7 @@ public class Player {
 	private int probabilityOfFourBall;
 
 	private PlayerScore score;
+	Random rnd = new SecureRandom();
 
 	public Player(PlayerData eachPlayer, String name) {
 		this.name = name + " " + eachPlayer.name;
@@ -51,7 +52,6 @@ public class Player {
 	public BattingResult batting() {
 		++score.dasekiCount;
 
-		Random rnd = new SecureRandom();
 		Integer ran = rnd.nextInt(1000);
 
 		if (ran < probabilityOfSingleHit) {
