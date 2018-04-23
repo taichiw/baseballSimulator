@@ -56,7 +56,7 @@ public class Main {
 				request.datenBunpuKey = datenBunpuKey;
 
 				Response response = MainPart.simulateOneDatenbunpu(request, playersData.getPlayerData());
-				System.out.println("Result\n" + gson.toJson(response));
+//				System.out.println("Result\n" + gson.toJson(response));
 			});
 		}
 	}

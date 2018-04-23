@@ -53,7 +53,8 @@ public class Player {
 	public BattingResult batting() {
 		++score.dasekiCount;
 
-		Integer ran = rnd.nextInt(1000);
+//		Integer ran = rnd.nextInt(1000);
+		Integer ran = Integer.valueOf(500);
 
 		if (ran < probabilityOfSingleHit) {
 			++score.hitCount;
