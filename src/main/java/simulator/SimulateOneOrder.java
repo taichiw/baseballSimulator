@@ -31,9 +31,6 @@ public class SimulateOneOrder {
 
 		PlayerScoresInMultipleSeasons playerScoresInMultipleSeasons = new PlayerScoresInMultipleSeasons();
 
-		ExecutorService pool = Executors.newFixedThreadPool(Math.min(100, numberOfSeasonSimulation));
-		CountDownLatch latch = new CountDownLatch(numberOfSeasonSimulation);
-
 		List<List<PlayerScore>> palayerScoresInMultipleSeason = IntStream.range(0, numberOfSeasonSimulation).parallel()
 				.mapToObj(seasonCount -> {
 							return SimulateOneSeason.oneSeason(oneOrder);

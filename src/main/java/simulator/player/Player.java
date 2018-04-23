@@ -2,6 +2,7 @@ package simulator.player;
 
 import java.security.SecureRandom;
 import java.util.Random;
+import org.apache.commons.lang.math.JVMRandom;
 import simulator.MyRandom;
 import simulator.playerdata.PlayerData;
 
@@ -25,7 +26,7 @@ public class Player {
 	private int probabilityOfFourBall;
 
 	private PlayerScore score;
-	Random rnd = new SecureRandom();
+	private Random rnd = new Random();
 
 	public Player(PlayerData eachPlayer, String name) {
 		this.name = name + " " + eachPlayer.name;
